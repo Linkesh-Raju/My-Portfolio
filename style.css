@@ -1,0 +1,689 @@
+html {
+    scroll-behavior: smooth;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Montserrat', sans-serif, Arial;
+    background-color: #0A192F; /* Primary background - Deep Navy */
+    color: #CCD6F6; /* Default text color - Light Gray/Blue */
+}
+
+/*------------------------------- Variables for Easy Edits ---------------------------------*/
+:root {
+    --color-dark-navy: #0A192F; /* Main BG */
+    --color-medium-navy: #112240; /* Card BG */
+    --color-darkest-navy: #081729; /* Header BG */
+    --color-gold-accent: #FFC700; /* Primary Accent (Gold) */
+    --color-cyan-accent: #64FFDA; /* Secondary Accent (Muted Electric Cyan) */
+    --color-light-text: #CCD6F6;
+    --color-dark-text: #0A192F;
+}
+
+/*------------------------------- header---------------------------------*/
+header {
+    width: 100%;
+}
+
+.head {
+    height: 60px;
+    width: 100%;
+    background-color: var(--color-darkest-navy); /* Darkest Navy for Header */
+    display: flex;
+    align-items: center;
+    padding: 0 5%;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.head a {
+    color: var(--color-light-text);
+    text-decoration: none;
+    margin-right: 25px;
+    transition: all 0.3s ease-in-out;
+    font-weight: 500;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.head a:hover {
+    color: var(--color-gold-accent); /* Gold hover */
+    background-color: rgba(100, 255, 218, 0.1); /* Subtle Cyan background on hover */
+    cursor: pointer;
+}
+
+.head .button-link {
+    background-color: var(--color-gold-accent);
+    color: var(--color-dark-navy);
+    font-weight: 700;
+    padding: 8px 18px;
+    border: 2px solid transparent;
+    border-radius: 50px;
+    margin-left: auto;
+    margin-right: 20px;
+}
+
+.head .button-link:hover {
+    background-color: transparent;
+    color: var(--color-gold-accent);
+    border: 2px solid var(--color-gold-accent);
+    box-shadow: 0 0 10px rgba(255, 199, 0, 0.5);
+}
+
+/*------------------------------- about page (Hero)---------------------------------*/
+
+.about {
+    padding: 80px 5%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--color-dark-navy); /* Main Navy BG */
+}
+
+.hero-text h1 {
+    margin: 0;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 7vw;
+    font-weight: 90;
+    color: var(--color-light-text);
+    line-height: 0.95;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.about img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-left: 40px;
+    border: 5px solid var(--color-cyan-accent); /* Cyan border */
+    box-shadow: 0 0 0 15px rgba(100, 255, 218, 0.1); /* Soft shadow glow */
+}
+
+@media (max-width: 768px) {
+    .about {
+        flex-direction: column;
+        text-align: center;
+        padding: 60px 5%;
+    }
+    
+    .hero-text h1 {
+        font-size: 18vw;
+        margin-bottom: 30px;
+    }
+    
+    .about img {
+        width: 200px;
+        height: 200px;
+        margin-left: 0;
+        box-shadow: 0 0 0 10px rgba(100, 255, 218, 0.1);
+    }
+}
+
+/*------------------------------- what do i do (About Section)---------------------------------*/
+.what {
+    padding: 60px 10%;
+    background-color: var(--color-medium-navy); /* Slightly lighter Navy card BG */
+    color: var(--color-light-text);
+    line-height: 1.8;
+}
+
+.what h1 {
+    font-size: 3em;
+    font-weight: 700;
+    color: var(--color-gold-accent); /* Gold highlight */
+    margin-bottom: 20px;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.what p {
+    font-size: 1.1em;
+    max-width: 900px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.what .interactive-link {
+    color: var(--color-cyan-accent); /* Cyan for interactive text */
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.what .interactive-link:hover {
+    color: var(--color-gold-accent);
+    text-shadow: 0 0 5px rgba(255, 199, 0, 0.5);
+    text-decoration: underline;
+}
+
+
+/*------------------------------- projects---------------------------------*/
+.projects-section {
+    padding: 80px 10%;
+    background-color: var(--color-dark-navy); /* Main Navy BG */
+    color: var(--color-light-text);
+}
+
+.projects-section h2 {
+    font-size: 2.5em;
+    color: var(--color-gold-accent); /* Gold section title */
+    text-align: center;
+    margin-bottom: 50px;
+    padding-bottom: 10px;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.project-card {
+    background-color: var(--color-medium-navy); /* Card BG */
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    border-top: 5px solid var(--color-cyan-accent); /* Subtle Cyan feature line */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6), 0 0 20px var(--color-cyan-accent);
+}
+
+.project-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+}
+
+.project-card:hover img {
+    opacity: 1;
+}
+
+.project-card h3 {
+    color: var(--color-gold-accent);
+    margin-top: 0;
+    font-size: 1.5em;
+}
+
+/* Project Tech Stack */
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 15px 0;
+}
+
+.tech-tag {
+    background-color: rgba(100, 255, 218, 0.1);
+    color: var(--color-cyan-accent);
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-size: 0.85em;
+    font-weight: 500;
+}
+
+/* Project Links */
+.project-links {
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.link-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 45px;
+    height: 45px;
+    text-decoration: none;
+    font-size: 1.2em;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+    transform: translateY(0);
+}
+
+.link-button.live-icon {
+    background-color: var(--color-gold-accent);
+    color: var(--color-dark-navy);
+    border: 2px solid var(--color-gold-accent);
+}
+
+.link-button.live-icon:hover {
+    background-color: transparent;
+    color: var(--color-gold-accent);
+    transform: translateY(-2px);
+}
+
+.link-button.github-icon {
+    background-color: var(--color-cyan-accent);
+    color: var(--color-dark-navy);
+    border: 2px solid var(--color-cyan-accent);
+}
+
+.link-button.github-icon:hover {
+    background-color: transparent;
+    color: var(--color-cyan-accent);
+    border-color: var(--color-cyan-accent);
+    transform: translateY(-2px);
+}
+
+/*------------------------------- Skills and Technologies ---------------------------------*/
+.skills-section {
+    padding: 80px 10%;
+    background-color: var(--color-dark-navy); /* Main Navy BG */
+    color: var(--color-light-text);
+}
+
+.skills-section h2 {
+    font-size: 2.5em;
+    color: var(--color-cyan-accent); /* Cyan section title */
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.skills-category {
+    background-color: var(--color-medium-navy); /* Card BG */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    border-left: 3px solid var(--color-gold-accent); /* Gold feature line */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: var(--color-light-text);
+}
+
+.skills-category:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.35);
+}
+
+.skills-category h3 {
+    color: var(--color-gold-accent);
+    font-size: 1.6em;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid rgba(255, 199, 0, 0.2);
+}
+
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.skill-tag {
+    background-color: var(--color-cyan-accent);
+    color: var(--color-dark-navy);
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    font-weight: 600;
+    white-space: nowrap;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.skill-tag:hover {
+    background-color: var(--color-gold-accent);
+    color: var(--color-dark-navy);
+    transform: translateY(-1px);
+}
+
+@media (max-width: 1024px) {
+    .skills-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .skills-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/*------------------------------- Education & Experience Container (Unified Look) ---------------------------------*/
+.education-section {
+    padding: 80px 10%;
+    background-color: var(--color-medium-navy); /* Lighter Navy BG */
+    color: var(--color-light-text);
+}
+
+.experience-section {
+    padding: 80px 10%;
+    background-color: var(--color-medium-navy); /* Lighter Navy BG */
+    color: var(--color-light-text);
+}
+
+.education-section h2,
+.experience-section h2 {
+    font-size: 2.5em;
+    color: var(--color-light-text);
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+/*------------------------------- Education Specifics ---------------------------------*/
+.education-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.education-item {
+    background-color: var(--color-dark-navy); /* Deep Navy Card */
+    margin-bottom: 35px;
+    padding: 25px 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border-left: 5px solid var(--color-gold-accent); /* Gold feature line */
+    transition: box-shadow 0.3s ease;
+}
+
+.education-item:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.education-item .degree {
+    font-size: 1.6em;
+    color: var(--color-cyan-accent);
+    margin-bottom: 5px;
+}
+
+.education-item .institution {
+    font-size: 1.1em;
+    font-weight: 600;
+    color: var(--color-light-text);
+    margin-bottom: 5px;
+}
+
+.education-item .duration,
+.education-item .gpa {
+    display: inline-block;
+    font-size: 0.9em;
+    color: #99A8C7; /* Muted text */
+    margin-right: 20px;
+    margin-bottom: 15px;
+}
+
+.education-item .highlights {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 15px;
+    border-top: 1px dashed rgba(255, 255, 255, 0.1);
+    padding-top: 15px;
+}
+
+.education-item .highlights li {
+    position: relative;
+    padding-left: 20px;
+    line-height: 1.6;
+    font-size: 0.95em;
+}
+
+.education-item .highlights li::before {
+    content: "🔸";
+    color: var(--color-gold-accent);
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+    position: absolute;
+    left: 0;
+}
+
+/*------------------------------- Experience Specifics ---------------------------------*/
+.experience-container {
+    display: flex;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.experience-column {
+    flex: 1;
+    padding: 30px;
+    background-color: var(--color-dark-navy); /* Deep Navy Card */
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.experience-column h3 {
+    font-size: 1.8em;
+    color: var(--color-gold-accent);
+    border-bottom: 2px solid var(--color-cyan-accent);
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+}
+
+.experience-item {
+    margin-bottom: 20px;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+    padding-bottom: 20px;
+}
+
+.experience-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.experience-item h4 {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+}
+
+.experience-item h4 a {
+    color: var(--color-cyan-accent);
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+}
+
+.experience-item h4 a:hover {
+    color: var(--color-gold-accent);
+    border-bottom: 2px solid var(--color-gold-accent);
+}
+
+.experience-item .company {
+    font-style: italic;
+    color: #99A8C7;
+    margin-bottom: 5px;
+}
+
+.experience-item .duration {
+    font-size: 0.9em;
+    color: #99A8C7;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.experience-item .duties {
+    list-style: disc;
+    margin-left: 20px;
+    font-size: 0.95em;
+}
+
+.experience-item .duties li {
+    margin-bottom: 5px;
+}
+
+@media (max-width: 900px) {
+    .experience-container {
+        flex-direction: column;
+    }
+}
+
+
+/*-------------------------------Contact---------------------------------*/
+/*-------------------------------Contact Section Styles---------------------------------*/
+.contact-section {
+    padding: 80px 10%;
+    background-color: var(--color-dark-navy);
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+}
+
+.contact-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 60px;
+    background-color: #213333;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+.contact-container h2 {
+    font-size: 2.5em;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.contact-container .contact-subheading {
+    font-size: 1.1em;
+    color: #ccc;
+    max-width: 700px;
+    margin: 0 auto 40px auto;
+}
+
+/*-------------------------------Form Layout & Groups---------------------------------*/
+.contact-form {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: left;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+/*-------------------------------Form Elements (Labels & Inputs)---------------------------------*/
+.contact-form label {
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #ff9800;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    padding: 12px 15px;
+    border: 1px solid #5a5a7a;
+    border-radius: 4px;
+    background-color: #191928;
+    color: #ffffff;
+    font-size: 1em;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #ff9800;
+    outline: none;
+    box-shadow: 0 0 8px rgba(255, 152, 0, 0.5);
+}
+
+.contact-form textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+/*-------------------------------Submit Button---------------------------------*/
+.submit-btn {
+    grid-column: 1 / -1;
+    justify-self: center;
+    margin-top: 20px;
+    padding: 12px 30px;
+    background-color: #ff9800;
+    color: #191928;
+    border: none;
+    border-radius: 4px;
+    font-weight: 700;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.submit-btn:hover {
+    background-color: #ffb74d;
+    transform: translateY(-2px);
+}
+
+/*-------------------------------Responsive Design---------------------------------*/
+@media (max-width: 600px) {
+    .contact-form {
+        grid-template-columns: 1fr;
+    }
+}
+/*-------------------------------Footer---------------------------------*/
+.main-footer {
+    background-color: var(--color-darkest-navy); /* Darkest Navy for Footer */
+    color: var(--color-light-text);
+    padding: 40px 10%;
+    text-align: center;
+    position: relative;
+    border-top: 3px solid var(--color-cyan-accent);
+}
+
+.footer-social a {
+    color: var(--color-light-text);
+    font-size: 1.8em;
+    transition: color 0.3s ease;
+}
+
+.footer-social a:hover {
+    color: var(--color-gold-accent);
+}
+
+.footer-links a {
+    color: var(--color-light-text);
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 0.95em;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--color-cyan-accent);
+}
+
+.link-separator {
+    color: #334466; /* Muted separator */
+    margin: 0 10px;
+}
+
+.copyright {
+    font-size: 0.8em;
+    color: #99A8C7;
+}
