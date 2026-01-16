@@ -687,3 +687,46 @@ header {
     font-size: 0.8em;
     color: #99A8C7;
 }
+.success-popup {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px);
+}
+
+.popup-content {
+    background: #0a192f; /* Matching your navy theme */
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+    border: 2px solid #64ffda; /* Your accent color */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    max-width: 400px;
+}
+
+.popup-content i {
+    font-size: 3rem;
+    color: #64ffda;
+    margin-bottom: 15px;
+}
+
+.popup-content h3 { color: #ccd6f6; margin-bottom: 10px; }
+.popup-content p { color: #8892b0; margin-bottom: 20px; }
+
+.popup-content button {
+    background: transparent;
+    border: 1px solid #64ffda;
+    color: #64ffda;
+    padding: 10px 25px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.popup-content button:hover {
+    background: rgba(100, 255, 218, 0.1);
+}

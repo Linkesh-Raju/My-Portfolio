@@ -337,6 +337,14 @@
             
         </form>
     </div>
+    <div id="thank-you-msg" class="success-popup">
+    <div class="popup-content">
+        <i class="fas fa-check-circle"></i>
+        <h3>Message Sent!</h3>
+        <p>Thanks for reaching out, ,<strong>Linkesh</strong> will get back to you soon.</p>
+        <button onclick="closePopup()">Close</button>
+    </div>
+</div>
 </section>
     <!------------------------------------------Footer----------------------------------------------> 
 
@@ -373,30 +381,41 @@
     </div>
 </footer>
 <script>
-      const scriptURL = 'https://script.google.com/macros/s/AKfycbyn4Ry56O-OPQcSTUh_p1VMtDjyz4lyzJSkok_peqOvk43-6eUqJxlzdRAeS9cjBnbI/exec';
-      const form = document.getElementById('contact-form');
-      const btn = document.getElementById('submit-btn');
+  // PASTE YOUR NEW URL FROM STEP 2 HERE
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbyn4Ry56O-OPQcSTUh_p1VMtDjyz4lyzJSkok_peqOvk43-6eUqJxIzdRAeS9cjBhbI/exec';
+  
+  const form = document.getElementById('contact-form');
+  const btn = document.getElementById('submit-btn');
+  const thankYouMsg = document.getElementById('thank-you-msg');
 
-      form.addEventListener('submit', e => {
-        e.preventDefault();
-        btn.disabled = true;
-        btn.innerText = "Sending...";
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    btn.disabled = true;
+    btn.innerText = "Sending...";
 
-        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-          .then(response => {
-              alert("Success! Your message has been saved.");
-              form.reset();
-              btn.disabled = false;
-              btn.innerText = "Send Message";
-          })
-          .catch(error => {
-              console.error('Error!', error.message);
-              btn.disabled = false;
-              btn.innerText = "Send Message";
-          });
-      });
-    </script>
-</body>
-</html>
+    fetch(scriptURL, { 
+        method: 'POST', 
+        body: new FormData(form),
+        mode: 'no-cors' // This bypasses most browser security errors
+    })
+    .then(() => {
+        // With 'no-cors', we assume success if the fetch doesn't crash
+        if (thankYouMsg) thankYouMsg.style.display = 'flex';
+        form.reset(); 
+    })
+    .catch(error => {
+        console.error('Error!', error.message);
+        alert("Error: Data not sent. Ensure your Script is set to 'Anyone'.");
+    })
+    .finally(() => {
+        btn.disabled = false;
+        btn.innerText = "Send Message";
+    });
+  });
+
+  function closePopup() {
+      if (thankYouMsg) thankYouMsg.style.display = 'none';
+  }
+</script>
 </body>
 </html>
