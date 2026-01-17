@@ -381,8 +381,8 @@
     </div>
 </footer>
 <script>
-  // PASTE YOUR NEW URL FROM STEP 2 HERE
-  const scriptURL = 'https://script.google.com/macros/s/AKfycbyn4Ry56O-OPQcSTUh_p1VMtDjyz4lyzJSkok_peqOvk43-6eUqJxIzdRAeS9cjBhbI/exec';
+  // Replace with the NEW URL from your latest deployment
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbyn4Ry56O-OPQcSTUh_p1VMtDjyz4lyzJSkok_peqOvk43-6eUqJxIzdRAeS9cjBhbI/exec'; 
   
   const form = document.getElementById('contact-form');
   const btn = document.getElementById('submit-btn');
@@ -396,16 +396,16 @@
     fetch(scriptURL, { 
         method: 'POST', 
         body: new FormData(form),
-        mode: 'no-cors' // This bypasses most browser security errors
+        mode: 'no-cors' // Bypasses browser security errors
     })
     .then(() => {
-        // With 'no-cors', we assume success if the fetch doesn't crash
+        // Success: Show custom popup and reset form
         if (thankYouMsg) thankYouMsg.style.display = 'flex';
         form.reset(); 
     })
     .catch(error => {
         console.error('Error!', error.message);
-        alert("Error: Data not sent. Ensure your Script is set to 'Anyone'.");
+        alert("Error sending message. Check console (F12).");
     })
     .finally(() => {
         btn.disabled = false;
