@@ -12,15 +12,22 @@
 <body id="top">   
     <!------------------------------------------Header----------------------------------------------> 
     <header>
-    <div class="head">
-        <a href="#home">Home</a>
-        <a href="#about">About</a> 
-        <a href="#projects">Projects</a> 
-        <a href="#skills">Skills</a>
-        <a href="#experience">Experience</a>
-        <a href="#education">Education</a>
+    <nav class="head">
+        <div class="menu-icon" id="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="nav-links" id="nav-links">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#skills">Skills</a>
+            <a href="#experience">Experience</a>
+            <a href="#education">Education</a>
+        </div>
         <a href="#contact" class="button-link">Hire Me!</a>
-    </div>
+    </nav>
 </header>
     <!------------------------------------------About----------------------------------------------> 
 
@@ -368,41 +375,65 @@
     </div>
 </footer>
 <script>
-  // Replace with the NEW URL from your latest deployment
-  const scriptURL = 'https://script.google.com/macros/s/AKfycbyn4Ry56O-OPQcSTUh_p1VMtDjyz4lyzJSkok_peqOvk43-6eUqJxIzdRAeS9cjBhbI/exec'; 
-  
-  const form = document.getElementById('contact-form');
-  const btn = document.getElementById('submit-btn');
-  const thankYouMsg = document.getElementById('thank-you-msg');
+ // 1. Configuration
+const scriptURL = 'https://script.google.com/macros/s/AKfycbyn4Ry56O-OPQcSTUh_p1VMtDjyz4lyzJSkok_peqOvk43-6eUqJxIzdRAeS9cjBhbI/exec'; 
 
-  form.addEventListener('submit', e => {
-    e.preventDefault();
-    btn.disabled = true;
-    btn.innerText = "Sending...";
+const form = document.getElementById('contact-form');
+const btn = document.getElementById('submit-btn');
+const thankYouMsg = document.getElementById('thank-you-msg');
 
-    fetch(scriptURL, { 
-        method: 'POST', 
-        body: new FormData(form),
-        mode: 'no-cors' // Bypasses browser security errors
-    })
-    .then(() => {
-        // Success: Show custom popup and reset form
-        if (thankYouMsg) thankYouMsg.style.display = 'flex';
-        form.reset(); 
-    })
-    .catch(error => {
-        console.error('Error!', error.message);
-        alert("Error sending message. Check console (F12).");
-    })
-    .finally(() => {
-        btn.disabled = false;
-        btn.innerText = "Send Message";
+// 2. Mobile Menu Logic
+const menuToggle = document.getElementById('menu-toggle');
+const navLinks = document.getElementById('nav-links');
+
+if (menuToggle) {
+    menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        // Optional: Animate hamburger to X
+        menuToggle.classList.toggle('is-active');
     });
-  });
+}
 
-  function closePopup() {
-      if (thankYouMsg) thankYouMsg.style.display = 'none';
-  }
+// Close mobile menu when a link is clicked
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        if (menuToggle) menuToggle.classList.remove('is-active');
+    });
+});
+
+// 3. Form Submission Logic
+if (form) {
+    form.addEventListener('submit', e => {
+        e.preventDefault();
+        btn.disabled = true;
+        btn.innerText = "Sending...";
+
+        fetch(scriptURL, { 
+            method: 'POST', 
+            body: new FormData(form),
+            mode: 'no-cors' 
+        })
+        .then(() => {
+            // Success: Show custom popup and reset form
+            if (thankYouMsg) thankYouMsg.style.display = 'flex';
+            form.reset(); 
+        })
+        .catch(error => {
+            console.error('Error!', error.message);
+            alert("Error sending message. Check console (F12).");
+        })
+        .finally(() => {
+            btn.disabled = false;
+            btn.innerText = "Send Message";
+        });
+    });
+}
+
+// 4. Popup Control
+function closePopup() {
+    if (thankYouMsg) thankYouMsg.style.display = 'none';
+}
 </script>
 </body>
 </html>
